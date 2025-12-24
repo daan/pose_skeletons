@@ -1,5 +1,5 @@
 [project]
-name = "pose-skeletons"
+name = "pose_skeletons"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -13,7 +13,7 @@ dev = [
     "bvhtoolbox>=0.1.3",
     "jupyter>=1.1.1",
     "k3d>=2.17.0",
-    "pose-skeletons",
+    "pose_skeletons",
     "ruff>=0.14.8",
 ]
 
