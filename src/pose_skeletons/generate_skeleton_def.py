@@ -4,13 +4,6 @@ import os
 import re
 from textwrap import dedent
 
-try:
-    from bvhtoolbox import BvhTree
-except ImportError:
-    print("Error: 'bvhtoolbox' is not installed.")
-    sys.exit(1)
-
-
 
 def sanitize_name(name: str) -> str:
     """Converts a string to a valid Python identifier for an Enum member."""
@@ -26,6 +19,12 @@ def generate_definition_file(bvh_path: str, class_name: str, end_sites: bool = F
     """
     Parses a BVH file to generate a Python SkeletonDefinition file.
     """
+    try:
+        from bvhtoolbox import BvhTree
+    except ImportError:
+        print("Error: 'bvhtoolbox' is not installed.")
+        sys.exit(1)
+
     try:
         with open(bvh_path) as f:
             mocap = BvhTree(f.read())
