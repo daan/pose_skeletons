@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List, Optional
 from .definition import SkeletonDefinition
 
 from .definitions.optitrack import Optitrack
@@ -9,8 +9,28 @@ from .generate_skeleton_def import generate_skeleton_def
 
 SKELETON_REGISTRY: Dict[str, SkeletonDefinition] = {
     "optitrack": Optitrack(),
-    "xsens": Xsens(),   
+    "xsens": Xsens(),
 }
+
+
+def detect_skeleton(joint_names: List[str]) -> Optional[str]:
+    """
+    Auto-detect skeleton type from joint names.
+
+    Args:
+        joint_names: List of joint names to match against registered skeletons.
+
+    Returns:
+        The skeleton name if an exact match is found, None otherwise.
+    """
+    joint_set = set(joint_names)
+
+    for name, skeleton in SKELETON_REGISTRY.items():
+        if joint_set == set(skeleton.original_names):
+            return name
+
+    return None
+
 
 def get_skeleton_def(name: str) -> SkeletonDefinition:
     """
@@ -24,6 +44,7 @@ def get_skeleton_def(name: str) -> SkeletonDefinition:
 
 __all__ = [
     "SkeletonDefinition",
+    "detect_skeleton",
     "get_skeleton_def",
-    "SKELETON_REGISTRY"
+    "SKELETON_REGISTRY",
 ]
