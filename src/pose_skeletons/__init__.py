@@ -4,6 +4,9 @@ from .definition import SkeletonDefinition
 from .definitions.optitrack import Optitrack
 from .definitions.xsens import Xsens
 from .definitions.mediapipe33 import MediaPipe33
+from .definitions.coco17 import Coco17
+from .definitions.stereolabs_body18 import StereolabsBody18
+from .definitions.stereolabs_body34 import StereolabsBody34
 
 from .generate_skeleton_def import generate_skeleton_def
 
@@ -12,6 +15,9 @@ SKELETON_REGISTRY: Dict[str, SkeletonDefinition] = {
     "optitrack": Optitrack(),
     "xsens": Xsens(),
     "mediapipe33": MediaPipe33(),
+    "coco17": Coco17(),
+    "stereolabs_body18": StereolabsBody18(),
+    "stereolabs_body34": StereolabsBody34(),
 }
 
 
