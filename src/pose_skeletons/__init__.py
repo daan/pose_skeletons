@@ -7,6 +7,9 @@ from .definitions.mediapipe33 import MediaPipe33
 from .definitions.coco17 import Coco17
 from .definitions.stereolabs_body18 import StereolabsBody18
 from .definitions.stereolabs_body34 import StereolabsBody34
+from .definitions.smpl import Smpl
+from .definitions.smplh import Smplh
+from .definitions.smplx import Smplx
 
 from .generate_skeleton_def import generate_skeleton_def
 
@@ -18,6 +21,9 @@ SKELETON_REGISTRY: Dict[str, SkeletonDefinition] = {
     "coco17": Coco17(),
     "stereolabs_body18": StereolabsBody18(),
     "stereolabs_body34": StereolabsBody34(),
+    "smpl": Smpl(),
+    "smplh": Smplh(),
+    "smplx": Smplx(),
 }
 
 
